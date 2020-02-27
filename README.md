@@ -8,7 +8,9 @@
 <!-- badges: end -->
 
 This is a collection of R functions from [Anatoly
-Tsyplenkov](atsyplenkov.com)
+Tsyplenkov](atsyplenkov.com). The package was created following the
+instructions from this
+[tutorial](https://r-mageddon.netlify.com/post/writing-an-r-package-from-scratch/)
 
 ## Installation
 
