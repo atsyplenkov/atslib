@@ -8,4 +8,12 @@
 \description{
 R functions for my personal use, mostly plotting!
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/atsyplenkov/atslib}
+  \item Report bugs at \url{https://github.com/atsyplenkov/atslib/issues}
+}
+
+}
 \keyword{internal}
