@@ -43,6 +43,10 @@ theme_clean <- function(base_font_family = "Ubuntu",
 #'
 #' @param method model type
 #' @param formula model formula
+#' @param add_line Should we add a \code{geom_smooth} to the plot?
+#' @param color color of the \code{geom_smooth}
+#' @param lty linetype of the \code{geom_smooth}
+#' @param conf_int Should we display confindence intervals of the \code{geom_smooth}?
 #' @param ... Other arguments passed to \code{stat_poly_eq}
 #'
 #' @details This is a dummy workaround of the original \code{stat_poly_eq}
@@ -63,17 +67,41 @@ theme_clean <- function(base_font_family = "Ubuntu",
 
 Add_R2 <- function(method = "lm",
                    formula = "y ~ x",
+                   add_line = T,
+                   color = "black",
+                   lty = "dashed",
+                   conf_int = F,
                    ...) {
 
-  ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
-                                           stat(adj.rr.label),
-                                           sep = "~~~~")),
-                        formula = formula,
-                        rr.digits = 2,
-                        # coef.digits = 2,
-                        parse = TRUE,
-                        ...)
+  if(add_line == TRUE){
 
+    list(
+      ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                               stat(adj.rr.label),
+                                               sep = "~~~~")),
+                            formula = formula,
+                            rr.digits = 2,
+                            # coef.digits = 2,
+                            parse = TRUE,
+                            ...),
+      ggplot2::geom_smooth(formula = formula,
+                           method = method,
+                           color = color,
+                           linetype = lty,
+                           se = conf_int)
+    )
+
+  } else {
+
+    ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                             stat(adj.rr.label),
+                                             sep = "~~~~")),
+                          formula = formula,
+                          rr.digits = 2,
+                          # coef.digits = 2,
+                          parse = TRUE,
+                          ...)
+  }
 }
 
 #' A ggplot theme for maps

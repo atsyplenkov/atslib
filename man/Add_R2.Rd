@@ -4,12 +4,28 @@
 \alias{Add_R2}
 \title{Adding R2 value for a linear regression}
 \usage{
-Add_R2(method = "lm", formula = "y ~ x", ...)
+Add_R2(
+  method = "lm",
+  formula = "y ~ x",
+  add_line = T,
+  color = "black",
+  lty = "dashed",
+  conf_int = F,
+  ...
+)
 }
 \arguments{
 \item{method}{model type}
 
 \item{formula}{model formula}
+
+\item{add_line}{Should we add a \code{geom_smooth} to the plot?}
+
+\item{color}{color of the \code{geom_smooth}}
+
+\item{lty}{linetype of the \code{geom_smooth}}
+
+\item{conf_int}{Should we display confindence intervals of the \code{geom_smooth}?}
 
 \item{...}{Other arguments passed to \code{stat_poly_eq}}
 }
