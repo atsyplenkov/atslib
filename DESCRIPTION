@@ -12,6 +12,6 @@ Imports:
     dplyr,
     ggpubr,
     ggpmisc
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 URL: https://github.com/atsyplenkov/atslib
 BugReports: https://github.com/atsyplenkov/atslib/issues
