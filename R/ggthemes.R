@@ -68,7 +68,7 @@ theme_clean <- function(base_font_family = "Ubuntu",
 Add_R2 <- function(method = "lm",
                    formula = "y ~ x",
                    add_line = T,
-                   color = "black",
+                   # color = "black",
                    lty = "dashed",
                    conf_int = F,
                    ...) {
@@ -77,7 +77,7 @@ Add_R2 <- function(method = "lm",
 
     list(
       ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
-                                               stat(adj.rr.label),
+                                               stat(rr.label),
                                                sep = "~~~~")),
                             formula = formula,
                             rr.digits = 2,
@@ -86,7 +86,7 @@ Add_R2 <- function(method = "lm",
                             ...),
       ggplot2::geom_smooth(formula = formula,
                            method = method,
-                           color = color,
+                           # color = color,
                            linetype = lty,
                            se = conf_int)
     )
