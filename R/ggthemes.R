@@ -39,6 +39,44 @@ theme_clean <- function(base_font_family = "Ubuntu",
     )
 }
 
+#' A ggplot2 theme based on see::theme_lucid
+#'
+#' @param base_font_size base font size
+#' @param legend legend position
+#' @param base_font_family base font family
+#' @param ... Other arguments passed to \code{theme_lucid}
+#'
+#' @examples
+#' \dontrun{
+#' library(see)
+#'
+#' ggplot(mtcars, aes(wt, mpg)) +
+#'     geom_point() +
+#'     labs(title = "A Lovely Plot",
+#'          subtitle = "What can the subtitle tell us?") +
+#'     theme_hp()
+#'}
+#'
+#' @export
+
+theme_hp <- function(base_font_family = "Noto Sans",
+                     base_font_size = 12,
+                     legend = "bottom",
+                     ...) {
+
+  see::theme_lucid(base_family = base_font_family,
+                   base_size = base_font_size,
+                   legend.position = legend,
+                   ...) +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.major.y = element_blank(),
+          strip.background = element_blank(),
+          axis.ticks = element_line(color = "grey50"))
+}
+
+
 #' Adding R2 value for a linear regression
 #'
 #' @param method model type
