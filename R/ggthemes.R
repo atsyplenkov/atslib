@@ -106,33 +106,50 @@ theme_hp <- function(base_font_family = "Noto Sans",
 Add_R2 <- function(method = "lm",
                    formula = "y ~ x",
                    add_line = T,
-                   # color = "black",
+                   color,
                    lty = "dashed",
                    conf_int = F,
                    ...) {
 
   if(add_line == TRUE){
+    if(missing(color)) {
 
-    list(
-      ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
-                                               stat(rr.label),
-                                               sep = "~~~~")),
-                            formula = formula,
-                            rr.digits = 2,
-                            # coef.digits = 2,
-                            parse = TRUE,
-                            ...),
-      ggplot2::geom_smooth(formula = formula,
-                           method = method,
-                           # color = color,
-                           linetype = lty,
-                           se = conf_int)
-    )
-
+      list(
+        ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                                 stat(rr.label),
+                                                 sep = "~~~~")),
+                              formula = formula,
+                              rr.digits = 2,
+                              # coef.digits = 2,
+                              parse = TRUE,
+                              ...),
+        ggplot2::geom_smooth(formula = formula,
+                             method = method,
+                             # color = color,
+                             linetype = lty,
+                             se = conf_int)
+      )
+    } else {
+      list(
+        ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                                 stat(rr.label),
+                                                 sep = "~~~~")),
+                              formula = formula,
+                              rr.digits = 2,
+                              # coef.digits = 2,
+                              parse = TRUE,
+                              ...),
+        ggplot2::geom_smooth(formula = formula,
+                             method = method,
+                             color = color,
+                             linetype = lty,
+                             se = conf_int)
+      )
+    }
   } else {
 
     ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
-                                             stat(adj.rr.label),
+                                             stat(rr.label),
                                              sep = "~~~~")),
                           formula = formula,
                           rr.digits = 2,
