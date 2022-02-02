@@ -104,7 +104,7 @@ theme_hp <- function(base_font_family = "Noto Sans",
 #' @export
 
 Add_R2 <- function(method = "lm",
-                   formula = "y ~ x",
+                   formula = y ~ x,
                    add_line = T,
                    color,
                    lty = "dashed",
