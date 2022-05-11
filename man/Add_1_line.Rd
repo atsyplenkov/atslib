@@ -37,8 +37,7 @@ ggplot(mtcars, aes(mpg, drat)) +
 expand_limits(x = c(.0001, 0.0001),
               y = c(.0001, 0.0001)) +
   Add_1_line(add_zero_line = T) +
-  geom_point() +
-  theme_minimal()
+  geom_point()
 
 }
 
