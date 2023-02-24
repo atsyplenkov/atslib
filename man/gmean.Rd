@@ -7,10 +7,10 @@
 gmean(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{vector}
 }
 \value{
-
+double
 }
 \description{
 Compute geometric mean/average

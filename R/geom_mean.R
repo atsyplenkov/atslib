@@ -1,15 +1,14 @@
 #' Compute geometric mean/average
 #'
-#' @param x
+#' @param x vector
 #'
-#' @return
+#' @return double
 #' @export
 #'
-#' @examples
 gmean <- function(x){
 
-  x_na <- x[!is.na(x)]
+  x_na <- x[!base::is.na(x)]
 
-  10^mean(log10(x_na))
+  10^base::mean(base::log10(x_na))
 
 }
