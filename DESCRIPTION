@@ -13,7 +13,10 @@ Depends:
 Imports:
     dplyr,
     ggpubr,
-    ggpmisc
+    ggpmisc,
+    dygraphs,
+    xts,
+    cols4all
 RoxygenNote: 7.2.3
 URL: https://github.com/atsyplenkov/atslib
 BugReports: https://github.com/atsyplenkov/atslib/issues
